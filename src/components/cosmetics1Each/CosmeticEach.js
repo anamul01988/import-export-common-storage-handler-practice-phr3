@@ -1,5 +1,5 @@
 import React from 'react';
-import { addToDb } from '../utilitites/fakedb';
+import { addToDb, removeFromDb } from '../utilitites/fakedb';
 import './CosmeticEach.css';
 const CosmeticEach = (props) => {
     console.log(props)
@@ -11,7 +11,13 @@ const CosmeticEach = (props) => {
         
         addToDb(id);
     }
-    const addCartWithParameter = ()=> addToCart(id);  //aikhane addCartWithParameter hocce wrapper
+    // const addCartWithParameter = ()=> addToCart(id);  //aikhane addCartWithParameter hocce wrapper
+    
+    
+    const removeFromCart = id =>{
+        // console.log('removed', id);
+        removeFromDb(id);
+    }
     return (
         <div className='product'>
             {/* <h3>Buy this:{props.cosmetic.name} </h3>
@@ -19,8 +25,9 @@ const CosmeticEach = (props) => {
             <h3>Buy this:{name} </h3>
             <p>only for: {price}</p>
             <p>id: {id}</p>
-            <button onClick = {addCartWithParameter}>add to cart</button>
-            <button onClick = {()=> addToCart(id)}>add to cart : shortcut</button>
+            {/* <button onClick = {addCartWithParameter}>add to cart</button> */}
+            <button onClick = {()=> addToCart(id)}>add to cart : </button>
+            <button onClick={()=> removeFromCart(id)}>remove</button>
         </div>
     );
 };
