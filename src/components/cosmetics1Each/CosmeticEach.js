@@ -9,6 +9,7 @@ const CosmeticEach = (props) => {
             <p>only for: {props.cosmetic.price}</p> */}
             <h3>Buy this:{name} </h3>
             <p>only for: {price}</p>
+            <p>id: {id}</p>
         </div>
     );
 };
