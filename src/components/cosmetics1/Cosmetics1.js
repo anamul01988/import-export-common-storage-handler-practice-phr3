@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CosmeticEach from '../cosmetics1Each/CosmeticEach';
+import { getTotal } from '../utilitites/Calculate';
 
 const Cosmetics1 = () => {
     const [cosmetics,setCosmetics] = useState([]);
@@ -8,6 +9,10 @@ const Cosmetics1 = () => {
         .then(res =>res.json())
         .then(data =>setCosmetics(data))
     },[]);
+
+    const total = getTotal(cosmetics);
+
+
     // const cosmetics = [
     //     // {id:1, name: 'Anamul', price: 300},
     //     // {id:2, name: 'jasim', price: 400},
@@ -71,6 +76,7 @@ const Cosmetics1 = () => {
         
         <div>
             <h2>this is Consmetics1 component</h2>
+            {<p>money recquired: {total}</p>}
             {
                 // cosmetics.forEach(cosmetics => console.log(cosmetics))
                 cosmetics.map(cosmetics =><CosmeticEach   //aikhane forEach dile data ta tar vitor theke ar ber hobe nah but map dewate se nije ekta array return kore
@@ -80,5 +86,7 @@ const Cosmetics1 = () => {
         </div>
     );
 };
+
+
 
 export default Cosmetics1;
