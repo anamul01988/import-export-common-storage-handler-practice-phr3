@@ -5,5 +5,8 @@ const add =( first, second) =>{
 const multiply = (first, second) =>{
     return first * second;
 }
+const devide = (first, second) =>{
+    return first / second;
+}
 //ekhn to ekadhk function hoye gece aigula export korar jonno { } aita use korbo jemon
-export {add, multiply}
+export {add, multiply, devide}
